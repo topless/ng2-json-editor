@@ -42,7 +42,7 @@ import {
   DomUtilService
 } from '../shared/services';
 import { JSONSchema, JsonPatch } from '../shared/interfaces';
-import { Subscription } from 'rxjs/Subscription';
+import { Subscription } from 'rxjs';
 import { ValidationProblem } from '../shared/interfaces';
 
 @Component({

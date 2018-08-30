@@ -22,7 +22,7 @@
 
 import { Injectable } from '@angular/core';
 import { Http, Response } from '@angular/http';
-import { Observable } from 'rxjs/Observable';
+import { Observable } from 'rxjs';
 
 import { AutocompletionConfig } from '../interfaces';
 import { PathUtilService } from './path-util.service';

@@ -27,7 +27,7 @@ import {
   ComponentFixture,
   TestBed
 } from '@angular/core/testing';
-import { Observable } from 'rxjs/Observable';
+import { Observable } from 'rxjs';
 import { Ng2BootstrapModule } from 'ngx-bootstrap';
 
 import { AutocompleteInputComponent } from '../autocomplete-input';

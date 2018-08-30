@@ -30,7 +30,7 @@ import {
   ChangeDetectorRef
 } from '@angular/core';
 import { Map, Set } from 'immutable';
-import { ReplaySubject } from 'rxjs/ReplaySubject';
+import { ReplaySubject } from 'rxjs';
 
 import { DomUtilService, PathUtilService, AppGlobalsService } from '../shared/services';
 import { JSONSchema } from '../shared/interfaces';

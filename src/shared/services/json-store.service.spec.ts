@@ -20,9 +20,11 @@
  * as an Intergovernmental Organization or submit itself to any jurisdiction.
 */
 
+
+import {take, skip} from 'rxjs/operators';
 import { fromJS } from 'immutable';
-import 'rxjs/add/operator/skip';
-import 'rxjs/add/operator/take';
+
+
 
 import { JsonStoreService } from './json-store.service';
 import { PathUtilService } from './path-util.service';
@@ -237,7 +239,7 @@ describe('JsonStoreService', () => {
       expect(changedJson.getIn(['aMap', 'aValue'])).toEqual('patchValue');
     });
     // skip first because replay subject emits the result before applyPatch
-    service.patchesByPath$.skip(1)
+    service.patchesByPath$.pipe(skip(1))
       .subscribe(patchesByPath => {
         expect(patchesByPath[patch.path]).toEqual([]);
       });
@@ -264,7 +266,7 @@ describe('JsonStoreService', () => {
       expect(changedJson.getIn(['aMap', 'aValue'])).toEqual('value');
     });
     // skip first because replay subject emits the result before applyPatch
-    service.patchesByPath$.skip(1)
+    service.patchesByPath$.pipe(skip(1))
       .subscribe(patchesByPath => {
         expect(patchesByPath[patch.path]).toEqual([]);
       });
@@ -279,11 +281,11 @@ describe('JsonStoreService', () => {
     });
     const change = fromJS({ aValue: 'newValue', anotherValue: 'anotherValue' });
     service.setJson(json);
-    service.json$.take(1)
+    service.json$.pipe(take(1))
       .subscribe(changedJson => {
         expect(changedJson.getIn(['aMap']).toJS()).toEqual(change.toJS());
       });
-    service.json$.skip(1)
+    service.json$.pipe(skip(1))
       .subscribe(changedJson => {
         expect(changedJson.getIn(['aMap']).toJS()).toEqual({ aValue: 'oldValue' });
       });

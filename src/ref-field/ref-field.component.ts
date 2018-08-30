@@ -31,7 +31,7 @@ import {
 } from '@angular/core';
 import { Http, Headers, RequestOptions } from '@angular/http';
 
-import { Observable } from 'rxjs/Observable';
+import { Observable } from 'rxjs';
 
 import { AppGlobalsService, PathUtilService } from '../shared/services';
 import { RefConfig, JSONSchema, RefAnchorAttributes } from '../shared/interfaces';

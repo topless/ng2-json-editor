@@ -20,24 +20,19 @@
  * as an Intergovernmental Organization or submit itself to any jurisdiction.
 */
 
-import {
-  async,
-  ComponentFixture,
-  TestBed
-} from '@angular/core/testing';
-import { SimpleChange } from '@angular/core';
-import { FormsModule } from '@angular/forms';
-import { Ng2BootstrapModule } from 'ngx-bootstrap';
-import { Observable } from 'rxjs/Observable';
-import { ReplaySubject } from 'rxjs/ReplaySubject';
+import { async, ComponentFixture, TestBed } from "@angular/core/testing";
+import { SimpleChange } from "@angular/core";
+import { FormsModule } from "@angular/forms";
+import { Ng2BootstrapModule } from "ngx-bootstrap";
+import { Observable, ReplaySubject } from "rxjs";
 
-import { SearchableDropdownComponent } from '../searchable-dropdown';
-import { TextDiffComponent } from '../text-diff';
-import { PatchActionsComponent } from '../patch-actions';
-import { AutocompleteInputComponent } from '../autocomplete-input';
-import { PrimitiveFieldComponent } from './primitive-field.component';
-import { StringInputComponent } from '../string-input';
-import { FilterByExpressionPipe } from '../shared/pipes';
+import { SearchableDropdownComponent } from "../searchable-dropdown";
+import { TextDiffComponent } from "../text-diff";
+import { PatchActionsComponent } from "../patch-actions";
+import { AutocompleteInputComponent } from "../autocomplete-input";
+import { PrimitiveFieldComponent } from "./primitive-field.component";
+import { StringInputComponent } from "../string-input";
+import { FilterByExpressionPipe } from "../shared/pipes";
 import {
   AppGlobalsService,
   ComponentTypeService,
@@ -53,9 +48,9 @@ import {
   TextDiffService,
   ListPageChangerService,
   CompareKeysBySchemaService
-} from '../shared/services';
+} from "../shared/services";
 
-import { ContentModelDirective } from '../shared/directives';
+import { ContentModelDirective } from "../shared/directives";
 
 /**
  * Change input html element value
@@ -70,17 +65,16 @@ import { ContentModelDirective } from '../shared/directives';
  */
 function changeInputElementValue(el: HTMLInputElement, value: string) {
   el.value = value;
-  el.dispatchEvent(new Event('input'));
+  el.dispatchEvent(new Event("input"));
 }
 
 class MockJsonStoreService extends JsonStoreService {
   readonly patchesByPath$ = Observable.of({}) as ReplaySubject<any>;
 
-  setIn(path: Array<any>, value: any) { }
+  setIn(path: Array<any>, value: any) {}
 }
 
-describe('PrimitiveFieldComponent', () => {
-
+describe("PrimitiveFieldComponent", () => {
   let fixture: ComponentFixture<PrimitiveFieldComponent>;
   let component: PrimitiveFieldComponent;
   let nativeEl: HTMLElement;
@@ -98,10 +92,7 @@ describe('PrimitiveFieldComponent', () => {
         TextDiffComponent,
         PatchActionsComponent
       ],
-      imports: [
-        Ng2BootstrapModule.forRoot(),
-        FormsModule
-      ],
+      imports: [Ng2BootstrapModule.forRoot(), FormsModule],
       providers: [
         AppGlobalsService,
         ComponentTypeService,
@@ -127,22 +118,21 @@ describe('PrimitiveFieldComponent', () => {
 
     // force component to render completely by setting @Input() manually
     component.value = 1;
-    component.path = ['default', 'path'];
-    component.pathString = '/defaut/path';
+    component.path = ["default", "path"];
+    component.pathString = "/defaut/path";
     component.schema = {
-      type: 'integer',
-      componentType: 'integer'
+      type: "integer",
+      componentType: "integer"
     };
     fixture.detectChanges();
 
     // get useful elements to use in tests
     nativeEl = fixture.nativeElement;
-    inputEl = nativeEl
-      .querySelector('input') as HTMLInputElement;
+    inputEl = nativeEl.querySelector("input") as HTMLInputElement;
     inputEl.focus();
   });
 
-  it('should be binded to view', () => {
+  it("should be binded to view", () => {
     /**
      * inputEl.value is not updated in test environment
     const modelValue = 'modelValue';
@@ -151,50 +141,56 @@ describe('PrimitiveFieldComponent', () => {
     expect(inputEl.value).toEqual(modelValue);
     */
 
-    const inputValue = '2';
+    const inputValue = "2";
     changeInputElementValue(inputEl, inputValue);
     fixture.detectChanges();
     expect(component.value).toEqual(Number(inputValue));
   });
 
-  it('should call jsonStore for change on blur', () => {
-    spyOn(component.jsonStoreService, 'setIn');
+  it("should call jsonStore for change on blur", () => {
+    spyOn(component.jsonStoreService, "setIn");
     // change the value
-    const newValue = '2';
+    const newValue = "2";
     changeInputElementValue(inputEl, newValue);
     fixture.detectChanges();
     // blur
-    inputEl.dispatchEvent(new Event('blur'));
-    expect(component.jsonStoreService.setIn).toHaveBeenCalledWith(component.path, Number(newValue));
+    inputEl.dispatchEvent(new Event("blur"));
+    expect(component.jsonStoreService.setIn).toHaveBeenCalledWith(
+      component.path,
+      Number(newValue)
+    );
   });
 
-  it('should not call jsonStore on blur if there is no change', () => {
-    spyOn(component.jsonStoreService, 'setIn');
+  it("should not call jsonStore on blur if there is no change", () => {
+    spyOn(component.jsonStoreService, "setIn");
 
     const sameValue = component.value;
     changeInputElementValue(inputEl, sameValue.toString());
     fixture.detectChanges();
     // blur
-    inputEl.dispatchEvent(new Event('blur'));
+    inputEl.dispatchEvent(new Event("blur"));
     expect(component.jsonStoreService.setIn).not.toHaveBeenCalled();
   });
 
-  it('should call jsonStore for change on enter pressed', () => {
-    spyOn(component.jsonStoreService, 'setIn');
+  it("should call jsonStore for change on enter pressed", () => {
+    spyOn(component.jsonStoreService, "setIn");
     // change the value
-    const newValue = '2';
+    const newValue = "2";
     changeInputElementValue(inputEl, newValue);
     fixture.detectChanges();
     // press enter
-    const enterPressedEvent = new Event('keypress');
-    enterPressedEvent['key'] = 'Enter';
+    const enterPressedEvent = new Event("keypress");
+    enterPressedEvent["key"] = "Enter";
     inputEl.dispatchEvent(enterPressedEvent);
 
-    expect(component.jsonStoreService.setIn).toHaveBeenCalledWith(component.path, Number(newValue));
+    expect(component.jsonStoreService.setIn).toHaveBeenCalledWith(
+      component.path,
+      Number(newValue)
+    );
   });
 
-  it('should call jsonStore for default value even on blur', () => {
-    spyOn(component.jsonStoreService, 'setIn');
+  it("should call jsonStore for default value even on blur", () => {
+    spyOn(component.jsonStoreService, "setIn");
     // change the value
     const defaultValue = 99;
     component.schema.default = defaultValue;
@@ -202,7 +198,10 @@ describe('PrimitiveFieldComponent', () => {
     component.ngOnInit();
     fixture.detectChanges();
     // blur
-    inputEl.dispatchEvent(new Event('blur'));
-    expect(component.jsonStoreService.setIn).toHaveBeenCalledWith(component.path, defaultValue);
+    inputEl.dispatchEvent(new Event("blur"));
+    expect(component.jsonStoreService.setIn).toHaveBeenCalledWith(
+      component.path,
+      defaultValue
+    );
   });
 });

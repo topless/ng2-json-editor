@@ -21,7 +21,7 @@
 */
 
 import { Component, EventEmitter, Input, OnInit, Output, ChangeDetectionStrategy, TemplateRef } from '@angular/core';
-import { Observable } from 'rxjs/Observable';
+import { Observable } from 'rxjs';
 import { TypeaheadMatch } from 'ngx-bootstrap';
 
 import { RemoteAutocompletionService, AppGlobalsService } from '../shared/services';

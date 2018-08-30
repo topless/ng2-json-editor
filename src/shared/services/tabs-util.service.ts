@@ -21,7 +21,7 @@
 */
 
 import { Injectable } from '@angular/core';
-import { ReplaySubject } from 'rxjs/ReplaySubject';
+import { ReplaySubject } from 'rxjs';
 import * as _ from 'lodash';
 import { Set } from 'immutable';
 

@@ -22,7 +22,7 @@
 
 import { Component, Input, ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core';
 import { List, Map, Set } from 'immutable';
-import { ReplaySubject } from 'rxjs/ReplaySubject';
+import { ReplaySubject } from 'rxjs';
 
 
 import { AbstractListFieldComponent } from '../abstract-list-field';

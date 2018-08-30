@@ -34,7 +34,7 @@ import {
 } from '@angular/core';
 import { fromJS, Map, Set } from 'immutable';
 
-import { ReplaySubject } from 'rxjs/ReplaySubject';
+import { ReplaySubject } from 'rxjs';
 
 import { AbstractSubscriberComponent } from './abstract-subscriber';
 import {

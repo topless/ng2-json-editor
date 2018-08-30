@@ -21,7 +21,7 @@
 */
 
 import { Injectable, TemplateRef } from '@angular/core';
-import { ReplaySubject } from 'rxjs/ReplaySubject';
+import { ReplaySubject } from 'rxjs';
 
 import { CategorizedValidationProblems, SchemaValidationProblems, ValidationProblem, JsonEditorConfig } from '../interfaces';
 

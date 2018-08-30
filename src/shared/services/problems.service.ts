@@ -21,9 +21,7 @@
  */
 
 import { Injectable } from '@angular/core';
-import { ReplaySubject } from 'rxjs/ReplaySubject';
-import { Observable } from 'rxjs/Observable';
-import { combineLatest } from 'rxjs/observable/combineLatest';
+import { ReplaySubject ,  Observable ,  combineLatest } from 'rxjs';
 
 import {
   SchemaValidationProblems,

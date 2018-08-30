@@ -22,8 +22,7 @@
 
 import { Injectable } from '@angular/core';
 import { Map, List, fromJS } from 'immutable';
-import { ReplaySubject } from 'rxjs/ReplaySubject';
-import { Subject } from 'rxjs/Subject';
+import { ReplaySubject ,  Subject } from 'rxjs';
 
 import { PathUtilService } from './path-util.service';
 import { KeysStoreService } from './keys-store.service';

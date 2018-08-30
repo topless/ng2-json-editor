@@ -23,7 +23,7 @@
 
 import { Component, Input, OnChanges, SimpleChanges, ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core';
 import { Map, Set } from 'immutable';
-import { ReplaySubject } from 'rxjs/ReplaySubject';
+import { ReplaySubject } from 'rxjs';
 
 import { AbstractFieldComponent } from '../abstract-field';
 import { AppGlobalsService, JsonStoreService, PathUtilService, KeysStoreService, ProblemsService } from '../shared/services';

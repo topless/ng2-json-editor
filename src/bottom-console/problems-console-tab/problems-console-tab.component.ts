@@ -27,7 +27,7 @@ import {
   OnInit,
   ChangeDetectorRef
 } from '@angular/core';
-import { Observable } from 'rxjs/Observable';
+import { Observable } from 'rxjs';
 
 import { AbstractSubscriberComponent } from '../../abstract-subscriber';
 import { DomUtilService, PathUtilService, ProblemsService } from '../../shared/services';

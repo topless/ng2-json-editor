@@ -21,7 +21,7 @@
 */
 
 import { OnDestroy } from '@angular/core';
-import { Subject } from 'rxjs/Subject';
+import { Subject } from 'rxjs';
 
 export abstract class AbstractSubscriberComponent implements OnDestroy {
   protected isDestroyed = new Subject<void>();

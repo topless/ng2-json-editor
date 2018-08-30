@@ -20,10 +20,11 @@
  * as an Intergovernmental Organization or submit itself to any jurisdiction.
 */
 
+
+import {zip as observableZip } from 'rxjs';
 import { Component, ViewEncapsulation } from '@angular/core';
 import { Http } from '@angular/http';
-import { Observable } from 'rxjs/Observable';
-import 'rxjs/add/observable/zip';
+
 import { JsonEditorConfig } from '../../dist';
 
 import { environment } from '../environments/environment';
@@ -46,7 +47,7 @@ export class AppComponent {
   readonly config: JsonEditorConfig = environment.editorConfig;
 
   constructor(private http: Http) {
-    Observable.zip(
+    observableZip(
       this.http.get(`./assets/${environment.mockDataFolder}/record.json`),
       this.http.get(`./assets/${environment.mockDataFolder}/schema.json`),
       this.http.get(`./assets/${environment.mockDataFolder}/patches.json`),

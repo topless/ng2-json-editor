@@ -29,7 +29,7 @@ import {
   RequestOptionsArgs
 } from '@angular/http';
 import { inject, TestBed } from '@angular/core/testing';
-import { Observable } from 'rxjs/Observable';
+import { Observable } from 'rxjs';
 
 import { RemoteAutocompletionService } from './remote-autocompletion.service';
 import { PathUtilService } from './path-util.service';

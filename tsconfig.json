@@ -1,56 +1,67 @@
 {
+  "compileOnSave": false,
   "compilerOptions": {
-    "baseUrl": "staging",
-    "declaration": true,
-    "stripInternal": true,
-    "experimentalDecorators": true,
-    "emitDecoratorMetadata": true,
-    "lib": [
-      "es6",
-      "dom"
-    ],
-    "paths": {
-      "@angular/core": [
-        "node_modules/@angular/core"
-      ],
-      "@angular/common": [
-        "node_modules/@angular/common"
-      ],
-      "@angular/forms": [
-        "node_modules/@angular/forms"
-      ],
-      "@angular/http": [
-        "node_modules/@angular/http"
-      ],
-      "rxjs/*": [
-        "node_modules/rxjs/*"
-      ]
-    },
-    "rootDir": "staging",
-    "module": "es6",
-    "moduleResolution": "node",
-    "outDir": "dist",
+    "outDir": "./dist/out-tsc",
     "sourceMap": true,
+    "declaration": false,
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
     "target": "es5",
-    "inlineSources": true,
-    "skipLibCheck": true,
-    "types": [
-      "jasmine"
-    ],
-    "typeRoots": [
-      "node_modules/@types"
-    ]
-  },
-  "files": [
-    "staging/index.ts"
-  ],
-  "exclude": [
-    "**/*.spec.ts",
-    "example"
-  ],
-  "angularCompilerOptions": {
-    "strictMetadataEmit": true,
-    "fullTemplateTypeCheck": true,
-    "strictInjectionParameters": true
+    "typeRoots": ["node_modules/@types"],
+    "lib": ["es2017", "dom"]
   }
+
+  // {
+  //   "compilerOptions": {
+  //     "baseUrl": "staging",
+  //     "declaration": true,
+  //     "stripInternal": true,
+  //     "experimentalDecorators": true,
+  //     "emitDecoratorMetadata": true,
+  //     "paths": {
+  //       "@angular/core": [
+  //         "node_modules/@angular/core"
+  //       ],
+  //       "@angular/common": [
+  //         "node_modules/@angular/common"
+  //       ],
+  //       "@angular/forms": [
+  //         "node_modules/@angular/forms"
+  //       ],
+  //       "@angular/http": [
+  //         "node_modules/@angular/http"
+  //       ],
+  //       "rxjs/*": [
+  //         "node_modules/rxjs/*"
+  //       ]
+  //     },
+  //     "rootDir": "staging",
+  //     "module": "es6",
+  //     "moduleResolution": "node",
+  //     "outDir": "dist",
+  //     "sourceMap": true,
+  //     "target": "es5",
+  //     "inlineSources": true,
+  //     "skipLibCheck": true,
+  //     "types": [
+  //       "jasmine"
+  //     ],
+  //     "typeRoots": [
+  //       "node_modules/@types"
+  //     ]
+  //   },
+  //   "files": [
+  //     "staging/index.ts"
+  //   ],
+  //   "exclude": [
+  //     "**/*.spec.ts",
+  //     "example"
+  //   ],
+  //   "angularCompilerOptions": {
+  //     "strictMetadataEmit": true,
+  //     "fullTemplateTypeCheck": true,
+  //     "strictInjectionParameters": true
+  //   }
+  // }
 }

@@ -22,7 +22,7 @@
 
 import { Component, Input, OnChanges, SimpleChanges, ChangeDetectionStrategy, OnDestroy } from '@angular/core';
 import { Set } from 'immutable';
-import { Subscription } from 'rxjs/Subscription';
+import { Subscription } from 'rxjs';
 
 import { AbstractSubscriberComponent } from '../abstract-subscriber';
 import { DomUtilService, PathUtilService, KeysStoreService, JsonSchemaService } from '../shared/services';

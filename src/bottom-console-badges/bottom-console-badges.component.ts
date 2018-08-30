@@ -24,7 +24,7 @@ import { Component, Output, EventEmitter, OnInit, OnDestroy, ChangeDetectorRef, 
 
 import { AbstractSubscriberComponent } from '../abstract-subscriber';
 import { ProblemsService, JsonStoreService } from '../shared/services';
-import { Subscription } from 'rxjs/Subscription';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'bottom-console-badges',
